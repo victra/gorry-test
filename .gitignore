@@ -1,5 +1,3 @@
-catalog-api/node_modules
-catalog-api/.env
-
-catalog-web/node_modules
-catalog-web/.env
+node_modules
+.env
+package-lock.json
