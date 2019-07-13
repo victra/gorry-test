@@ -68,4 +68,20 @@ router.put('/catalog/:id', async (req, res, next) => {
     }
 });
 
+router.delete('/catalog/:id', async (req, res, next) => {
+    require('../db/conn');
+    const { Product } = require('../models');
+
+    try {
+        var result = await Product.deleteOne({ _id: req.params.id }).exec();
+    
+        res.status(200).send({
+            success: 'true',
+            data: result
+        })
+    } catch(error) {
+        response.status(500).send(error);
+    }
+});
+
 module.exports = router;
