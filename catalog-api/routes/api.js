@@ -84,4 +84,25 @@ router.delete('/catalog/:id', async (req, res, next) => {
     }
 });
 
+router.post('/catalog/:id/ioproduct/:qty/:action', async (req, res, next) => {
+    require('../db/conn');
+    const { IOProduct } = require('../models');
+
+    try {
+        const ioProduct = new IOProduct({
+            product_id: req.params.id,
+            quantity: req.params.qty,
+            action: req.params.action,
+        });
+        const result = await ioProduct.save();
+    
+        res.status(200).send({
+            success: 'true',
+            data: result
+        })
+    } catch(error) {
+        response.status(500).send(error);
+    }
+});
+
 module.exports = router;
