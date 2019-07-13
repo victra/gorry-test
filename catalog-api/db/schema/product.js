@@ -10,6 +10,8 @@ const productSchema = new Schema({
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now },
     deleted_at: { type: Date },
+}, {
+    versionKey: false
 })
 
 module.exports = productSchema
