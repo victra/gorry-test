@@ -10,6 +10,6 @@
 2. $ make run_local
 
 ## Solusi run with test.txt
-node solusi.js test.txt
+$ node solusi.js test.txt
 ## Solusi run with string input
-node solusi.js 'ABCCDA'
+$ node solusi.js 'ABCCDA'
