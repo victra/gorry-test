@@ -6,11 +6,11 @@ router.get('/catalog', async (req, res, next) => {
     const { Product } = require('../models');
 
     try {
-        const result = await Product.find().exec();
-    
+        const products = await Product.find().populate('ioproducts').exec();
+
         res.status(200).send({
             success: 'true',
-            data: result
+            data: products
         })
     } catch(error) {
         response.status(500).send(error);

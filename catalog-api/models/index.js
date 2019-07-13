@@ -1,3 +1,4 @@
 module.exports = {
-    Product: require('./product')
+    Product: require('./product'),
+    IOProduct: require('./io-product')
 }
