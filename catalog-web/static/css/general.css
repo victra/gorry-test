@@ -35,6 +35,10 @@
     padding: 5px;
 }
 
+.box-padding a {
+    text-decoration: none;
+}
+
 .box-catalog {
     border: 1px solid #00a65a;
     border-radius: 2px;

@@ -22,7 +22,7 @@ router.get('/catalog/:id', async (req, res, next) => {
     const { Product } = require('../models');
 
     try {
-        const result = await Product.findById(req.params.id).exec();
+        const result = await Product.findById(req.params.id).populate('ioproducts').exec();
     
         res.status(200).send({
             success: 'true',

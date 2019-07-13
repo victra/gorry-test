@@ -3,6 +3,7 @@ function findFirstDuplicate() {
     let data = [];
     if (process.argv.length < 3) {
         console.log('input not found!');
+        break;
     } else {
         const input = process.argv[2];
         if (fs.existsSync(input)) {

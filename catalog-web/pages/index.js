@@ -2,6 +2,18 @@ import Layout from '../layouts/general'
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 
+const sumQuantity = (io) => {
+    let sum = 0;
+    io.forEach(e => {
+        if(e.action == 'masuk') {
+            sum += e.quantity;
+        } else {
+            sum -= e.quantity;
+        }
+    });
+    return sum;
+};
+
 const Index = (props) => (
     <Layout meta_title={'Gorry'}>
         <div class="action-container">
@@ -11,13 +23,13 @@ const Index = (props) => (
         <h1 class="margin-bottom-30">Product List</h1>
         <div class="row">
             {props.catalogs.data.map(catalog => (
-                <Link href="/catalog/[id]" as={`/catalog/${catalog._id}`}>
-                    <div key={catalog._id} class="col-md-2 box-padding">
+                <div class="col-md-2 box-padding">
+                    <a href={`/catalog/${catalog._id}`} key={catalog._id}>
                         <div class="box-catalog">
-                            {catalog.name}
+                            {catalog.name} ({sumQuantity(catalog.ioproducts)})
                         </div>
-                    </div>
-                </Link>
+                    </a>
+                </div>
             ))}
         </div>
     </Layout>

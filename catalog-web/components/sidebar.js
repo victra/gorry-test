@@ -1,10 +1,8 @@
-import Link from 'next/link';
-
 const Sidebar = (props) => (
     <div class="sidebar">
-        <Link href="/">
+        <a href="/" as={`/`}>
             <a>Home</a>
-        </Link>
+        </a>
     </div>
 );
 
